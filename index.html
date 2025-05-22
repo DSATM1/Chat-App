@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="msapplication-navbutton-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div id="authContainer">
+        <div class="tabs">
+            <button id="loginTab" class="tab active">Login</button>
+            <button id="registerTab" class="tab">Register</button>
+        </div>
+        
+        <div id="loginForm">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button id="loginButton">Login</button>
+            <p id="loginMessage" class="message"></p>
+            <!-- <div class="test-user-info">
+                <p>Using in-memory database? Try these credentials:</p>
+                <ul>
+                    <li>Username: test</li>
+                    <li>Password: password</li>
+                </ul>
+            </div> -->
+        </div>
+        
+        <div id="registerForm">
+            <h2>Register</h2>
+            <input type="text" id="registerUsername" placeholder="Username" required>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button id="registerButton">Register</button>
+            <p id="registerMessage" class="message"></p>
+        </div>
+        
+        <!-- <div class="connection-status">
+            <p>Connection Status: <span id="connectionStatus">Checking...</span></p>
+        </div> -->
+    </div>
+
+    <div id="chatContainer">
+        <h2>Chat Room</h2>
+        <div class="user-info">
+            <span id="currentUser"></span>
+            <button id="logoutButton">Logout</button>
+        </div>
+        <label for="roomSelect">Select Chat Room:</label>
+        <select id="roomSelect">
+            <option value="general">General</option>
+            <option value="tech">Tech</option>
+        </select>
+        
+        <!-- Chat controls section -->
+        <div class="chat-controls">
+            <button id="clearChatButton" class="secondary-button">Clear Chat</button>
+        </div>
+        
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button id="sendButton">Send</button>
+        <p id="typingIndicator"></p>
+        
+        <!-- File upload section - will be shown/hidden based on room -->
+        <div id="fileUploadSection" class="file-upload-section">
+            <h3>File Sharing</h3>
+            <label for="fileInput">Select a file to share:</label>
+            <input type="file" id="fileInput">
+            <button id="uploadButton">Upload File</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
